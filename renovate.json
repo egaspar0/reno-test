@@ -1,31 +1,12 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-      "config:best-practices"
-    ],    
-    "packageRules": [    
-      {
-        "enabled": false,
-        "groupName": "everything",
-        "matchPackagePatterns": ["*"],
-        "separateMajorMinor": false
-      }
-    ],   
-    "labels": [
-      "dependencies"
-    ],
-    "major": {
-      "dependencyDashboardApproval": true,
-      "addLabels": [
-        "major-upgrade"
-      ]
-    },
-    "transitiveRemediation" : true, 
-    "vulnerabilityAlerts": {
-      "enabled": true,
-      "labels": [
-          "security"
-      ],
-      "groupName": "{{vulnerabilitySeverity}} vulnerable dependencies"
+  "extends": [ "config:base"],
+  "packageRules": [
+    {
+      "enabled": false,
+      "matchPackagePatterns": ["*"]
     }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true
   }
+}
