@@ -1,12 +1,10 @@
 {
   "extends": [ "config:base"],
+  "ignorePresets": ["group:monorepos"],
   "packageRules": [
     {
       "enabled": false,
-      "groupName": "everything",
-      "matchManagers": ["npm"],
-      "matchPackagePatterns": ["*"],
-      "separateMajorMinor": false
+      "matchPackagePatterns": ["*"]
     }
   ],
   "vulnerabilityAlerts": {
