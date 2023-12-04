@@ -1,6 +1,5 @@
 {
-  "extends": [ "config:base"],
-  "ignorePresets": ["group:monorepos"],
+  "extends": [ "config:best-practices"],
   "packageRules": [
     {
       "enabled": false,
@@ -9,5 +8,6 @@
   ],
   "vulnerabilityAlerts": {
     "enabled": true
-  }
+  },
+  "osvVulnerabilityAlerts": true
 }
