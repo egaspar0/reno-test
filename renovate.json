@@ -14,6 +14,14 @@
     },
     "transitiveRemediation" : true,
     "osvVulnerabilityAlerts": true,
+    "packageRules": [    
+      {
+        "enabled": false,
+        "groupName": "everything",
+        "matchPackagePatterns": ["*"],
+        "separateMajorMinor": false
+      }
+    ],    
     "vulnerabilityAlerts": {
       "enabled": true,
       "labels": [
@@ -21,36 +29,6 @@
       ],
       "groupName": "{{vulnerabilitySeverity}} vulnerable dependencies"
     },
-    "packageRules": [    
-      {
-          "matchPackagePatterns": ["*"],
-          "matchUpdateTypes": [
-            "minor",
-            "patch",
-            "pin",
-            "digest",
-            "lockFileMaintenance",
-            "rollback",
-            "bump"
-          ],
-          "groupName": "all non-major dependencies",
-          "groupSlug": "all-minor-patch"
-      },
-      {
-        "matchUpdateTypes": [
-            "minor"
-        ],
-        "matchCurrentVersion": "/^[~^]?0/",
-        "dependencyDashboardApproval": true,
-        "addLabels": [
-            "major-upgrade"
-        ]
-      },
-      {
-        "matchDatasources": ["npm", "nuget", "terraform-module", "terraform-provider"],
-        "minimumReleaseAge": "14 days"
-      }
-    ],
     "nuget": {
       "registryUrls": [
         "https://api.nuget.org/v3/index.json"
