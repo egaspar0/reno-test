@@ -13,7 +13,7 @@
     ]
   },
   "vulnerabilityAlerts": {
-    "groupName": "{{{vulnerabilitySeverity}}} vulnerability dependencies",
+    "groupName": "{{{vulnerabilitySeverity}}} vulnerable dependencies",
     "enabled": true,
     "labels": [
       "security"
