@@ -1,12 +1,12 @@
 {
-  "extends": [ "config:best-practices"],  
-  "ignorePresets": ["group:monorepos"],
+  "extends": [ "config:best-practices"],
   "packageRules": [
     {
       "enabled": false,
       "matchPackagePatterns": ["*"]
     }
   ],
+  "transitiveRemediation" : true,
   "vulnerabilityAlerts": {
     "groupName": "all vulnerability alerts",
     "enabled": true
