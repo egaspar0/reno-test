@@ -20,5 +20,6 @@
       "security"
     ]
   },
-  "transitiveRemediation" : true
+  "transitiveRemediation" : true,
+  "osvVulnerabilityAlerts": true
 }
