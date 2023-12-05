@@ -10,5 +10,6 @@
   "vulnerabilityAlerts": {
     "groupName": "{{{vulnerabilitySeverity}}} vulnerability alerts",
     "enabled": true
-  }
+  },
+  "osvVulnerabilityAlerts": true
 }
