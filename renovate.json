@@ -1,12 +1,35 @@
 {
   "extends": [ "config:best-practices"],
-  "ignorePresets": ["group:monorepos"],
-  "packageRules": [
-    {
-      "enabled": false,
-      "matchPackagePatterns": ["*"]
-    }
-  ],
+  "packageRules": [    
+      {
+          "matchPackagePatterns": ["*"],
+          "matchUpdateTypes": [
+            "minor",
+            "patch",
+            "pin",
+            "digest",
+            "lockFileMaintenance",
+            "rollback",
+            "bump"
+          ],
+          "groupName": "all non-major dependencies",
+          "groupSlug": "all-non-major-dependencies"
+      },
+      {
+        "matchUpdateTypes": [
+            "minor"
+        ],
+        "matchCurrentVersion": "/^[~^]?0/",
+        "dependencyDashboardApproval": true,
+        "addLabels": [
+            "major-upgrade"
+        ]
+      },
+      {
+        "matchDatasources": ["npm", "nuget", "terraform-module", "terraform-provider"],
+        "minimumReleaseAge": "14 days"
+      }
+    ],
   "major": {
     "dependencyDashboardApproval": true,
     "addLabels": [
@@ -14,7 +37,7 @@
     ]
   },
   "vulnerabilityAlerts": {
-    "groupName": "{{{vulnerabilitySeverity}}} vulnerability alerts",
+    "groupName": "{{{vulnerabilitySeverity}}} vulnerability dependencies",
     "enabled": true,
     "labels": [
       "security"
