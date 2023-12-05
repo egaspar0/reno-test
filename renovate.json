@@ -8,7 +8,7 @@
   ],
   "transitiveRemediation" : true,
   "vulnerabilityAlerts": {
-    "groupName": "all vulnerability alerts",
+    "groupName": "{{{vulnerabilitySeverity}}} vulnerability alerts",
     "enabled": true
   }
 }
