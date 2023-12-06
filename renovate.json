@@ -1,10 +1,10 @@
 {
-  "extends": [ "config:best-practices"],
-  "packageRules": [
-    {
-      "enabled": false,
-      "matchPackagePatterns": ["*"]
-    }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices"
+  ],  
+  "labels": [
+    "dependencies"
   ],
   "major": {
     "dependencyDashboardApproval": true,
@@ -12,13 +12,43 @@
       "major-upgrade"
     ]
   },
+  "transitiveRemediation" : true,
+  "osvVulnerabilityAlerts": true,
   "vulnerabilityAlerts": {
-    "groupName": "{{{vulnerabilitySeverity}}} vulnerable dependencies",
     "enabled": true,
     "labels": [
-      "security"
-    ]
+        "security"
+    ],
+    "groupName": "{{{vulnerabilitySeverity}}} vulnerable dependencies"
   },
-  "transitiveRemediation" : true,
-  "osvVulnerabilityAlerts": true
+  "packageRules": [    
+    {
+        "matchPackagePatterns": ["*"],
+        "matchUpdateTypes": [
+          "minor",
+          "patch",
+          "pin",
+          "digest",
+          "lockFileMaintenance",
+          "rollback",
+          "bump"
+        ],
+        "groupName": "all non-major dependencies",
+        "groupSlug": "all-minor-patch"
+    },
+    {
+      "matchUpdateTypes": [
+          "minor"
+      ],
+      "matchCurrentVersion": "/^[~^]?0/",
+      "dependencyDashboardApproval": true,
+      "addLabels": [
+          "major-upgrade"
+      ]
+    },
+    {
+      "matchDatasources": ["npm", "nuget", "terraform-module", "terraform-provider"],
+      "minimumReleaseAge": "14 days"
+    }
+  ]
 }
